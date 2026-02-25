@@ -32,7 +32,6 @@ batch_size = max(1, int(len(ds) * batch_percent / 100))
 wandb.init(project=project_name, name = run_name)
 
 training_args = TrainingArguments(
-    overwrite_output_dir=True,
     num_train_epochs=epochs,
     per_device_train_batch_size=batch_size, 
     logging_steps=1,
