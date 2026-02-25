@@ -37,7 +37,6 @@ training_args = TrainingArguments(
     per_device_train_batch_size=batch_size, 
     logging_steps=1,
     bf16=True,
-    output_dir=f"./{base_repo_id}",
     report_to="wandb", 
     save_steps=save_steps,
     remove_unused_columns=True, 
