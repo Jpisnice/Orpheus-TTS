@@ -27,7 +27,7 @@ model = AutoModelForCausalLM.from_pretrained(model_name, attn_implementation="fl
 
 
 ds = load_dataset(dsn, split="train")
-batch_size = max(1, int(len(ds) * batch_percent / 100))
+batch_size = 1
 
 wandb.init(project=project_name, name = run_name)
 
