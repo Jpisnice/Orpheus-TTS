@@ -17,7 +17,7 @@ run_name = config["run_name"]
 project_name = config["project_name"]
 base_repo_id = config["save_folder"]
 epochs = config["epochs"]
-batch_size = config["batch_size"]
+batch_percent = config["batch_percent"]
 save_steps = config["save_steps"]
 pad_token = config["pad_token"]
 number_processes = config["number_processes"]
@@ -43,7 +43,8 @@ lora_config = LoraConfig(
 
 model = get_peft_model(model, lora_config)
 
-ds = load_dataset(dsn, split="train") 
+ds = load_dataset(dsn, split="train")
+batch_size = max(1, int(len(ds) * batch_percent / 100))
 
 wandb.init(project=project_name, name = run_name)
 
