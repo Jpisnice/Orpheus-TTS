@@ -49,6 +49,7 @@ batch_size = 1
 wandb.init(project=project_name, name = run_name)
 
 training_args = TrainingArguments(
+    output_dir=base_repo_id,
     num_train_epochs=epochs,
     per_device_train_batch_size=batch_size, 
     logging_steps=1,
@@ -57,6 +58,11 @@ training_args = TrainingArguments(
     save_steps=save_steps,
     remove_unused_columns=True, 
     learning_rate=learning_rate,
+    optim="adamw_bnb_8bit",
+    dataloader_pin_memory=True,
+    dataloader_num_workers=number_processes,
+    push_to_hub=True,
+    hub_strategy="every_save",
 )
 
 trainer = Trainer(
