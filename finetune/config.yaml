@@ -1,4 +1,4 @@
-# CHANGE THIS TO YOUR OWN DATASET
+# OptimiseLora01
 TTS_dataset: Jpisnice/tokenised-konkani01
 
 model_name: "canopylabs/3b-hi-pretrain-research_release"
